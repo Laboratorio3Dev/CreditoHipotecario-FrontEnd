@@ -1,7 +1,12 @@
+using BanBif.CreditoHipotecario.Web.Services;
+using BanBif.CreditoHipotecario.Web.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient<ILoginService, LoginService>();
+builder.Services.AddHttpClient<ISimuladorService, SimuladorService>();
 
 var app = builder.Build();
 
@@ -22,6 +27,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();

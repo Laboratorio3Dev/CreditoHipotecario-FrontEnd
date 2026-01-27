@@ -1,0 +1,458 @@
+/* ========================================
+   VARIABLES
+   ======================================== */
+:root {
+  --bb-dark: #131926;
+  --bb-blue: #18a8f0;
+  --bb-purple: #8b5cf6;
+  --bb-purple-dark: #7c3aed;
+  --bb-border: #d9e0ea;
+  --bb-text: #111827;
+  --bb-muted: #6b7280;
+  --bb-callout: #dff3ff;
+  --bb-line: #dfe6f1;
+}
+
+/* ========================================
+   BASE
+   ======================================== */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body.banbif-hipotecario-felicidades {
+  margin: 0;
+  color: var(--bb-text);
+  background: #fff;
+  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ========================================
+   LAYOUT PRINCIPAL
+   ======================================== */
+.bb-main {
+  min-height: calc(100vh - 64px - 86px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px 56px;
+}
+
+.bb-wrap {
+  margin-top: 50px;
+  width: 100%;
+  max-width: 980px;
+  display: flex;
+  justify-content: center;
+}
+
+.bb-card {
+  width: 100%;
+  max-width: 760px;
+  text-align: center;
+}
+
+/* ========================================
+   HERO ICON + TITULOS
+   ======================================== */
+.bb-hero-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.bb-hero-icon__img {
+  width: 90px;
+  height: auto;
+}
+
+.bb-title {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.0;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.bb-subtitle {
+  margin: 10px 0 26px;
+  font-size: 16px;
+  color: var(--bb-muted);
+}
+
+/* ========================================
+   TARJETA MONTO / DETALLE
+   ======================================== */
+.bb-amount-card{
+  margin:0 auto 26px;
+  width:100%;
+  max-width:484px;
+  border:1px solid var(--bb-border);
+  border-radius:14px;
+  min-height:274px;   
+  padding:28px 26px 22px;
+  background:#fff;
+}
+
+.bb-amount {
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  margin: 0 0 18px;
+}
+
+.bb-amount-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  text-align: left;
+}
+
+.bb-col-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 20px;
+}
+
+.bb-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 0 16px;
+}
+
+.bb-row-label {
+  font-size: 16px;
+  color: #111827;
+}
+
+.bb-row-line {
+  height: 1px;
+  width: 150px;
+  background: var(--bb-line);
+}
+
+/* ========================================
+   PREGUNTA + BOTONES
+   ======================================== */
+.bb-question {
+  margin: 18px 0 14px;
+  font-size: 16px;
+  color: #111827;
+}
+
+.bb-actions {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.bb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  min-width: 280px;
+  padding: 0 26px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.bb-btn--outline {
+  color: var(--bb-purple);
+  border: 1.5px solid var(--bb-purple);
+  background: #fff;
+}
+
+.bb-btn--outline:hover {
+  border-color: var(--bb-purple-dark);
+  color: var(--bb-purple-dark);
+}
+
+.bb-btn--solid {
+  color: #fff;
+  background: var(--bb-purple);
+  border: 1.5px solid var(--bb-purple);
+}
+
+.bb-btn--solid:hover {
+  background: var(--bb-purple-dark);
+  border-color: var(--bb-purple-dark);
+}
+
+/* ========================================
+   CALLOUT
+   ======================================== */
+.bb-callout {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 660px;
+  background: var(--bb-callout);
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.bb-callout__icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  margin-top: 2px;
+  background-image: url("../images/icon-little-alert.png");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bb-callout__text {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #25324a;
+}
+
+/* ========================================
+   MODAL WHATSAPP
+   ======================================== */
+.bb-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.55);
+  display: none;
+  z-index: 1000;
+  align-items: center;
+}
+
+.bb-modal:target {
+  display: block;
+}
+
+.bb-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+}
+
+.bb-modal__box {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 32px 28px;
+  width: 90%;
+  max-width: 520px;
+  margin: 120px auto 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.bb-modal__check {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: #ede9fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.bb-modal__check-img {
+  width: 85px;
+  height: auto;
+}
+
+.bb-modal__content_Title {
+  max-width: 352px;
+  margin: 0 auto;
+}
+
+.bb-modal__title {
+  width: 100%;
+  max-width: 352px;
+  margin: 0 0 12px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #1f2937;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.bb-modal__list {
+  text-align: left;
+  margin: 0 auto 28px;
+  padding-left: 18px;
+  max-width: 420px;
+}
+
+.bb-modal__list li {
+  font-size: 14px;
+  font-weight: 400;
+  color: #4b5563;
+  margin-bottom: 6px;
+  line-height: 1.45;
+}
+
+.bb-modal__btn {
+  display: block;
+  width: 100%;
+  height: 44px;
+  border-radius: 10px;
+  background: #8b5cf6;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 44px;
+  text-decoration: none;
+}
+
+.bb-modal__btn:hover {
+  background: #7c3aed;
+}
+
+/* ========================================
+   HEADER BANBIF
+   ======================================== */
+.header-section {
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+}
+
+.header-section .banbif-header {
+  padding: 0;
+  overflow: hidden;
+}
+
+.header-section,
+.header-section .banbif-header,
+.bg-wrapper {
+  height: 72px;
+}
+
+.header-section,
+.header-section .banbif-header {
+  background: linear-gradient(90deg, #00a5fb 0 50%, #131926 50% 100%);
+}
+
+.header-section div {
+  padding: 0;
+  overflow: hidden;
+}
+
+.bg-wrapper {
+  position: relative;
+}
+
+.bg-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 72px;
+  width: calc((100vw - min(1320px, 100%)) / 2);
+  background: linear-gradient(to bottom, #00a4fb, #00a5fb);
+  z-index: 0;
+}
+
+.contenedor-principal,
+.degradado {
+  position: relative;
+  z-index: 1;
+}
+
+.contenedor-principal {
+  background-color: #131926;
+  display: flex;
+}
+
+.degradado {
+  width: 430px;
+  height: 72px;
+  background: linear-gradient(
+    92deg,
+    #20a5fe 0,
+    #20a5fe 14%,
+    #5e3b8c 56%,
+    #131926 85%,
+    #131926 100%
+  );
+  display: flex;
+  align-items: center;
+}
+
+.banbif-logo {
+  margin-left: 12px;
+}
+
+/* ========================================
+   FOOTER BANBIF
+   ======================================== */
+.banbif-footer {
+  background-color: #131926;
+  padding: 32px 0;
+}
+
+.banbif-footer_text {
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 16px;
+  letter-spacing: 0.15px;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 640px) {
+  .bb-title {
+    font-size: 34px;
+  }
+
+  .bb-amount {
+    font-size: 34px;
+  }
+
+  .bb-amount-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .bb-row-line {
+    width: 180px;
+  }
+
+  .bb-btn {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .banbif-footer_text {
+    padding-top: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bb-modal__box {
+    padding: 32px 24px;
+  }
+}

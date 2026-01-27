@@ -1,0 +1,624 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BanBif - Crédito Hipotecario</title>
+    <link rel="shortcut icon" href="~/images/favicon.ico" />
+    <link rel="stylesheet" href="~/css/str-base.css" />
+    <link rel="stylesheet" href="~/css/hipotecario-cotizacion.css" />
+</head>
+
+<body class="banbif-hipotecario-cotizacion">
+    <header class="header-section">
+        <div class="banbif-header">
+            <div class="bg-wrapper">
+                <div class="container contenedor-principal">
+                    <div class="degradado">
+                        <a href="https://www.banbif.com.pe/personas" class="banbif-logo">
+                            <img src="images/banbif.png" alt="BanBif" height="32" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="banbif-hero banbif-hero-top">
+            <div class="banbif-bg-image-form" aria-hidden="true"></div>
+            <div class="container banbif_cont banbif-banner">
+                <div class="row g-0 align-items-center">
+                    <div class="col-12">
+                        <div class="hero-copy manrope">
+                            <h1 class="mb-0 manrope-regular texted-two">
+                                Simula tu Crédito<br class="d-none d-md-block"> Hipotecario
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="banbif-coti-wrap">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10">
+
+                        <form id="formCotizacion" class="cotizacion-form" novalidate>
+
+                            <div class="cotizacion-header">
+                                <h2 class="banbif-coti-title" id="saludo">Hola, Casey Aroni</h2>
+                                <p class="banbif-coti-subtitle">Vamos a personalizar una oferta para ti</p>
+                            </div>
+
+                            <div class="banbif-coti-currency">
+                                <p class="banbif-coti-label">Moneda</p>
+                                <div class="banbif-coti-radio">
+                                    <label class="control control--radio">
+                                        <input type="radio" name="moneda" value="soles" checked />
+                                        <span class="banbif-radio-text">Soles</span>
+                                        <div class="control__indicator"></div>
+                                    </label>
+                                    <label class="control control--radio">
+                                        <input type="radio" name="moneda" value="dolares" />
+                                        <span class="banbif-radio-text">Dólares</span>
+                                        <div class="control__indicator"></div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="banbif-coti-grid">
+                                <div class="form-group banbif_cont_form banbif-select-wrap">
+                                    <div class="banbif-select-ui" data-for="tipoVivienda">
+                                        <button type="button" class="banbif-select-btn" aria-haspopup="listbox" aria-expanded="false">
+                                            <span class="banbif-select-label">
+                                                ¿Es tu 1ra vivienda?<span class="banbif-super">(1)</span>
+                                            </span>
+                                            <span class="banbif-select-arrow"></span>
+                                        </button>
+                                        <div class="banbif-select-panel" role="listbox">
+                                            <div class="banbif-opt" role="option" data-value="si">Sí</div>
+                                            <div class="banbif-opt" role="option" data-value="no">No</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="banbif-select-overlay"></div>
+
+                                    <select class="form-control" name="tipoVivienda" required>
+                                        <option value="" selected disabled>¿Es tu 1ra vivienda? (1)</option>
+                                        <option value="si">Sí</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                    <p class="banbif-error banbif-none" id="error_tipoVivienda">
+                                        <img src="images/icon-info-off.png" alt="" width="16" height="16">
+                                        Completa este campo.
+                                    </p>
+                                </div>
+
+                                <div class="form-group banbif_cont_form">
+                                    <input class="form-control"
+                                           id="valorInmueble"
+                                           name="valorInmueble"
+                                           placeholder=" "
+                                           inputmode="decimal" />
+                                    <label for="valorInmueble">¿Cuál es el valor del inmueble?</label>
+                                    <p class="banbif-error banbif-none" id="errorValorInmueble">
+                                        <img src="images/icon-info-off.png" alt="" width="16" height="16">
+                                        Por favor ingrese un valor numérico.
+                                    </p>
+                                </div>
+
+                                <div class="form-group banbif_cont_form banbif-has-info">
+                                    <input class="form-control"
+                                           id="inicial"
+                                           name="inicial"
+                                           placeholder=" "
+                                           inputmode="decimal" />
+                                    <label for="inicial">¿Con cuánto de inicial cuentas?</label>
+
+                                    <button type="button" class="banbif-info-btn" aria-label="Información">
+                                        <img src="images/icon-little-alert-p.png" alt="" width="18" height="18">
+                                    </button>
+
+                                    <div class="banbif-info-tip" role="tooltip">
+                                        La Cuota Inicial Mínima, debe ser equivalente al 10% del valor del inmueble.
+                                    </div>
+
+                                    <p class="banbif-error banbif-none" id="errorInicial">
+                                        <img src="images/icon-info-off.png" alt="" width="16" height="16">
+                                        Por favor ingrese un valor numérico.
+                                    </p>
+                                </div>
+
+                                <div class="form-group banbif_cont_form">
+                                    <input class="form-control"
+                                           id="financia"
+                                           name="financia"
+                                           placeholder=" "
+                                           inputmode="decimal" />
+                                    <label for="financia">
+                                        Tu monto a financiar será <span class="banbif-super">(2)</span>
+                                    </label>
+                                    <p class="banbif-error banbif-none" id="errorFinancia">
+                                        <img src="images/icon-info-off.png" alt="" width="16" height="16">
+                                        Por favor ingrese un valor numérico.
+                                    </p>
+                                </div>
+
+                                <div class="form-group banbif_cont_form">
+                                    <input class="form-control"
+                                           id="ingreso"
+                                           name="ingreso"
+                                           placeholder=" "
+                                           inputmode="decimal" />
+                                    <label for="ingreso">¿Cuál es tu ingreso promedio mensual?</label>
+                                    <p class="banbif-error banbif-none" id="errorIngreso">
+                                        <img src="images/icon-info-off.png" alt="" width="16" height="16">
+                                        Por favor ingrese un valor numérico.
+                                    </p>
+                                </div>
+
+                                <div class="form-group banbif_cont_form banbif-select-wrap">
+                                    <div class="banbif-select-ui" data-for="tipoIngreso">
+                                        <button type="button" class="banbif-select-btn" aria-haspopup="listbox" aria-expanded="false">
+                                            <span class="banbif-select-label">Tipo de ingreso</span>
+                                            <span class="banbif-select-arrow"></span>
+                                        </button>
+
+                                        <div class="banbif-select-panel" role="listbox">
+                                            <div class="banbif-opt" role="option" data-value="dependiente">Dependiente</div>
+                                            <div class="banbif-opt" role="option" data-value="profeisonalIndependiente">Profesional Independiente</div>
+                                            <div class="banbif-opt" role="option" data-value="independienteNegocio">Independiente con Negocio</div>
+                                            <div class="banbif-opt" role="option" data-value="sinIngreso">Sin sustento de ingresos</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="banbif-select-overlay"></div>
+
+                                    <select class="form-control" name="tipoIngreso" required>
+                                        <option value="" selected disabled>Tipo de ingreso</option>
+                                        <option value="dependiente">Dependiente</option>
+                                        <option value="profeisonalIndependiente">Profesional Independiente</option>
+                                        <option value="independienteNegocio">Independiente con Negocio</option>
+                                        <option value="sinIngreso">Sin sustento de ingresos</option>
+                                    </select>
+                                    <p class="banbif-error banbif-none" id="error_tipoIngreso">
+                                        <img src="images/icon-info-off.png" alt="" width="16" height="16">
+                                        Completa este campo.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="banbif-coti-radios-2col">
+                                <div class="banbif-coti-radio-block">
+                                    <p class="banbif-coti-label">
+                                        ¿Vas a compartir la cuota? <span class="banbif-super">(3)</span>
+                                    </p>
+                                    <div class="banbif-coti-radio">
+                                        <label class="control control--radio">
+                                            <input type="radio" name="compartirCuota" value="si" />
+                                            <span class="banbif-radio-text">Sí</span>
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                        <label class="control control--radio">
+                                            <input type="radio" name="compartirCuota" value="no" />
+                                            <span class="banbif-radio-text">No</span>
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </div>
+                                    <p class="banbif-error banbif-none" id="error_compartirCuota">
+                                        <img src="images/icon-info-off.png" alt="" width="16" height="16">
+                                        Selecciona una opción.
+                                    </p>
+                                </div>
+
+                                <div class="banbif-coti-radio-block">
+                                    <p class="banbif-coti-label">
+                                        ¿Y sabes que inmueble quieres comprar? <span class="banbif-super">(4)</span>
+                                    </p>
+                                    <div class="banbif-coti-radio">
+                                        <label class="control control--radio">
+                                            <input type="radio" name="inmuebleDef" value="si" />
+                                            <span class="banbif-radio-text">Sí</span>
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                        <label class="control control--radio">
+                                            <input type="radio" name="inmuebleDef" value="no" />
+                                            <span class="banbif-radio-text">No</span>
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </div>
+                                    <p class="banbif-error banbif-none" id="error_inmuebleDef">
+                                        <img src="images/icon-info-off.png" alt="" width="16" height="16">
+                                        Selecciona una opción.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="banbif-info-callout mt-3">
+                                <div class="banbif-info-icon" aria-hidden="true"></div>
+                                <div class="banbif-info-text">
+                                    <p class="mb-2">(1) Si estás buscando financiar la compra de tu 1er inmueble, cuya finalidad es Vivienda.</p>
+                                    <p class="mb-2">(2) El monto a financiar se calcula de la siguiente manera: Valor del inmueble - Cuota inicial.</p>
+                                    <p class="mb-2">(3) Si para adquirir tu inmueble vas a sumar ingresos con alguien más.</p>
+                                    <p class="mb-2">(4) Para conocer los proyectos que financiamos, descarga aquí nuestro catálogo inmobiliario.</p>
+                                    <p class="mb-0 banbif-info-legal">
+                                        Información sobre las características y los costos de nuestro producto Préstamo Hipotecario, Préstamo Hipotecario Mi Vivienda y Préstamo Hipotecario Techo Propio, está disponible en las oficinas de atención al público, a través del tarifario general y en nuestra página web: www.banbif.com.pe.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <button class="banbif-btn-primario banbif-btn-centered" type="submit">
+                                    Cotizar
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="banbif-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-auto">
+                    <img src="images/banbif-footer.png" alt="BanBif" height="32" />
+                </div>
+                <div class="col-12 col-md">
+                    <p class="banbif-footer_text">
+                        © 2026 BanBif - Todos los derechos reservados. Banco Interamericano de Finanzas S.A. - RUC 20101036813
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          function initCustomSelect(name) {
+            const ui = document.querySelector(`.banbif-select-ui[data-for="${name}"]`);
+            if (!ui) return;
+
+            const btn    = ui.querySelector('.banbif-select-btn');
+            const label  = ui.querySelector('.banbif-select-label');
+            const opts   = [...ui.querySelectorAll('.banbif-opt')];
+            const overlay = ui.nextElementSibling?.classList.contains('banbif-select-overlay')
+              ? ui.nextElementSibling
+              : null;
+
+            const real = ui.parentElement.querySelector(`select[name="${name}"]`);
+            if (!real) return;
+
+            const errorEl = document.getElementById(`error_${name}`);
+
+            const open = () => {
+              ui.classList.add('is-open');
+              btn.setAttribute('aria-expanded', 'true');
+            };
+
+            const close = () => {
+              ui.classList.remove('is-open');
+              btn.setAttribute('aria-expanded', 'false');
+            };
+
+            btn.addEventListener('click', () => {
+              ui.classList.contains('is-open') ? close() : open();
+            });
+
+            overlay?.addEventListener('click', close);
+
+            opts.forEach(opt => {
+              opt.addEventListener('click', () => {
+                const value = opt.dataset.value;
+                const text  = opt.textContent.trim();
+
+                real.value = value;
+                real.dispatchEvent(new Event('change', { bubbles: true }));
+
+                opts.forEach(o => o.classList.remove('is-active'));
+                opt.classList.add('is-active');
+
+                const superSpan = label.querySelector('.banbif-super');
+                label.textContent = text;
+                if (superSpan) superSpan.remove();
+
+                ui.classList.remove('has-error');
+                real.classList.remove('banbif-input-error');
+                if (errorEl) errorEl.classList.add('banbif-none');
+
+                close();
+              });
+            });
+
+            document.addEventListener('click', (e) => {
+              if (!ui.contains(e.target)) close();
+            });
+
+            document.addEventListener('keydown', (e) => {
+              if (e.key === 'Escape') close();
+            });
+
+            if (real.value) {
+              const match = opts.find(o => o.dataset.value === real.value);
+              if (match) {
+                match.classList.add('is-active');
+                const superSpan = label.querySelector('.banbif-super');
+                label.textContent = match.textContent.trim();
+                if (superSpan) label.appendChild(superSpan);
+              }
+            }
+
+            const form = real.closest('form');
+            form?.addEventListener('submit', () => {
+              if (real.required && !real.value) {
+                ui.classList.add('has-error');
+                real.classList.add('banbif-input-error');
+                if (errorEl) errorEl.classList.remove('banbif-none');
+                close();
+              }
+            });
+
+            real.addEventListener('change', () => {
+              if (real.value) {
+                ui.classList.remove('has-error');
+                real.classList.remove('banbif-input-error');
+                if (errorEl) errorEl.classList.add('banbif-none');
+              }
+            });
+          }
+
+          initCustomSelect('tipoVivienda');
+          initCustomSelect('tipoIngreso');
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          function validarRadios(nameGrupo, idError) {
+            const radios = document.querySelectorAll(`input[name="${nameGrupo}"]`);
+            const error  = document.getElementById(idError);
+            if (!radios.length || !error) return true;
+
+            const haySeleccion = Array.from(radios).some(r => r.checked);
+
+            if (haySeleccion) {
+              error.classList.add('banbif-none');
+            } else {
+              error.classList.remove('banbif-none');
+            }
+
+            return haySeleccion;
+          }
+
+          [
+            ['compartirCuota', 'error_compartirCuota'],
+            ['inmuebleDef',   'error_inmuebleDef']
+          ].forEach(([grupo, idError]) => {
+            const radios = document.querySelectorAll(`input[name="${grupo}"]`);
+            radios.forEach(radio => {
+              radio.addEventListener('change', () => {
+                validarRadios(grupo, idError);
+              });
+            });
+          });
+          function validarNumero(nameCampo, idError) {
+            const input = document.querySelector(`input[name="${nameCampo}"]`);
+            const error = document.getElementById(idError);
+            if (!input || !error) return true;
+
+            const valor = input.value.trim();
+            const esValido = valor !== '' && /^(\d+([.,]\d+)?)$/.test(valor);
+
+            if (esValido) {
+              input.classList.remove('banbif-input-error');
+              error.classList.add('banbif-none');
+            } else {
+              input.classList.add('banbif-input-error');
+              error.classList.remove('banbif-none');
+            }
+
+            return esValido;
+          }
+
+          const camposNumericos = [
+            ['valorInmueble', 'errorValorInmueble'],
+            ['inicial',        'errorInicial'],
+            ['ingreso',        'errorIngreso'],
+            ['financia',      'errorFinancia'],
+          ];
+
+          camposNumericos.forEach(([campo, idError]) => {
+            const input = document.querySelector(`input[name="${campo}"]`);
+            if (!input) return;
+
+            input.addEventListener('blur', () => {
+              validarNumero(campo, idError);
+            });
+
+            input.addEventListener('input', () => {
+              if (input.classList.contains('banbif-input-error')) {
+                validarNumero(campo, idError);
+              }
+            });
+          });
+          function validarSelect(nameCampo, idError) {
+            const select = document.querySelector(`select[name="${nameCampo}"]`);
+            const error  = document.getElementById(idError);
+            if (!select) return true;
+
+            const ok = !!select.value;
+
+            if (ok) {
+              select.classList.remove('banbif-input-error');
+              error?.classList.add('banbif-none');
+            } else {
+              select.classList.add('banbif-input-error');
+              error?.classList.remove('banbif-none');
+            }
+
+            return ok;
+          }
+
+          const form = document.querySelector('form');
+          if (!form) return;
+
+          form.addEventListener('submit', (e) => {
+            let ok = true;
+
+            // NUMÉRICOS
+            ok = validarNumero('valorInmueble', 'errorValorInmueble') && ok;
+            ok = validarNumero('inicial',        'errorInicial')        && ok;
+            ok = validarNumero('ingreso',        'errorIngreso')        && ok;
+            ok = validarNumero('financia',      'errorFinancia')      && ok;
+            ok = validarRadios('compartirCuota', 'error_compartirCuota') && ok;
+            ok = validarRadios('inmuebleDef',    'error_inmuebleDef')    && ok;
+
+            ok = validarSelect('tipoVivienda', 'error_tipoVivienda') && ok;
+            ok = validarSelect('tipoIngreso',  'error_tipoIngreso')  && ok;
+
+            if (!ok) {
+              e.preventDefault();
+            }
+          });
+
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          function setupInfoTooltips() {
+            const groups = document.querySelectorAll('.banbif-has-info');
+            if (!groups.length) return;
+
+            const GAP = 10;
+            const PADDING = 12;
+
+            function clamp(v, min, max){ return Math.max(min, Math.min(max, v)); }
+
+            function placeTooltip(btn, tip) {
+              tip.classList.add('is-open');
+              tip.style.opacity = '0';
+              tip.style.visibility = 'hidden';
+
+              const b = btn.getBoundingClientRect();
+              const t = tip.getBoundingClientRect();
+              const vw = window.innerWidth;
+              const vh = window.innerHeight;
+
+              const spaceTop = b.top;
+              const spaceBottom = vh - b.bottom;
+              const spaceRight = vw - b.right;
+              const spaceLeft = b.left;
+
+              let side = 'top';
+              if (spaceTop < t.height + GAP + PADDING && spaceBottom >= t.height + GAP + PADDING) side = 'bottom';
+              else if (spaceTop < t.height + GAP + PADDING && spaceBottom < t.height + GAP + PADDING) {
+                if (spaceRight >= t.width + GAP + PADDING) side = 'right';
+                else if (spaceLeft >= t.width + GAP + PADDING) side = 'left';
+                else side = 'bottom';
+              }
+
+              let x = 0, y = 0, arrow = 24, origin = '50% 100%';
+
+              if (side === 'top') {
+                x = b.left + (b.width / 2) - (t.width / 2);
+                y = b.top - t.height - GAP;
+                origin = '50% 100%';
+                arrow = (t.width / 2) - 6;
+              }
+
+              if (side === 'bottom') {
+                x = b.left + (b.width / 2) - (t.width / 2);
+                y = b.bottom + GAP;
+                origin = '50% 0%';
+                arrow = (t.width / 2) - 6;
+              }
+
+              if (side === 'right') {
+                x = b.right + GAP;
+                y = b.top + (b.height / 2) - (t.height / 2);
+                origin = '0% 50%';
+                arrow = (t.height / 2) - 6;
+              }
+
+              if (side === 'left') {
+                x = b.left - t.width - GAP;
+                y = b.top + (b.height / 2) - (t.height / 2);
+                origin = '100% 50%';
+                arrow = (t.height / 2) - 6;
+              }
+
+              x = clamp(x, PADDING, vw - t.width - PADDING);
+              y = clamp(y, PADDING, vh - t.height - PADDING);
+
+              if (side === 'top' || side === 'bottom') {
+                const btnCenterX = b.left + b.width / 2;
+                const arrowX = clamp(btnCenterX - x - 6, 16, t.width - 28);
+                tip.style.setProperty('--tt-arrow', `${arrowX}px`);
+              } else {
+                const btnCenterY = b.top + b.height / 2;
+                const arrowY = clamp(btnCenterY - y - 6, 12, t.height - 24);
+                tip.style.setProperty('--tt-arrow', `${arrowY}px`);
+              }
+
+              tip.dataset.side = side;
+              tip.style.setProperty('--tt-origin', origin);
+              tip.style.setProperty('--tt-x', `${Math.round(x)}px`);
+              tip.style.setProperty('--tt-y', `${Math.round(y)}px`);
+
+              tip.style.opacity = '';
+              tip.style.visibility = '';
+            }
+
+            function open(btn, tip) {
+              placeTooltip(btn, tip);
+              tip.classList.add('is-open');
+              tip.setAttribute('aria-hidden', 'false');
+            }
+
+            function close(tip) {
+              tip.classList.remove('is-open');
+              tip.setAttribute('aria-hidden', 'true');
+            }
+
+            groups.forEach(group => {
+              const btn = group.querySelector('.banbif-info-btn');
+              const tip = group.querySelector('.banbif-info-tip');
+              if (!btn || !tip) return;
+
+              tip.setAttribute('role', 'tooltip');
+              tip.setAttribute('aria-hidden', 'true');
+
+              let isOpen = false;
+
+              const show = () => { isOpen = true; open(btn, tip); };
+              const hide = () => { isOpen = false; close(tip); };
+
+              btn.addEventListener('mouseenter', show);
+              btn.addEventListener('mouseleave', hide);
+              btn.addEventListener('focus', show);
+              btn.addEventListener('blur', hide);
+
+              const onReflow = () => { if (isOpen) placeTooltip(btn, tip); };
+              window.addEventListener('scroll', onReflow, true);
+              window.addEventListener('resize', onReflow);
+
+              document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && isOpen) hide();
+              });
+            });
+          }
+
+          setupInfoTooltips();
+        });
+    </script>
+</body>
+</html>

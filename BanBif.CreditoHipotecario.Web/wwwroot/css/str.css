@@ -1,0 +1,692 @@
+/* ======================================================
+   FUENTES
+====================================================== */
+@font-face {
+  font-family: 'Manrope-Regular';
+  src: url('../fonts/Manrope-Regular.woff2') format('woff2'),
+       url('../fonts/Manrope-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope-SemiBold';
+  src: url('../fonts/Manrope-SemiBold.woff2') format('woff2'),
+       url('../fonts/Manrope-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ======================================================
+   RESET / BASE
+====================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: black !important;
+}
+
+*:focus-visible {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+html {
+  height: auto;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  font-family: "Manrope-Regular", sans-serif;
+  font-style: normal;
+  overflow-x: hidden;
+  background-color: #131926;
+}
+
+.manrope {
+  font-family: "Manrope", sans-serif;
+  font-style: normal;
+}
+
+.manrope-regular {
+  font-family: 'Manrope-Regular';
+}
+
+/* ======================================================
+   LAYOUT GENÉRICO
+====================================================== */
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+main {
+  background-color: #ffffff;
+  min-height: 760px;
+}
+
+/* ======================================================
+   HEADER
+====================================================== */
+.bg-wrapper {
+  position: relative;
+}
+
+.bg-wrapper::before {
+  content: "";
+  position: absolute;
+  width: calc(50% - 360px);
+  height: 100%;
+  z-index: 0;
+  background: linear-gradient(to bottom, #00a4fb, #00a5fb);
+  top: 0;
+  left: 0;
+}
+
+.header-section {
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background: linear-gradient(90deg, #00a5fb 0 50%, #131926 50% 100%);
+}
+
+.header-section div {
+  padding: 0;
+  overflow: hidden;
+}
+
+.banbif-header {
+  padding: 0;
+  overflow: hidden;
+}
+
+.banbif-logo {
+  margin-left: 12px;
+}
+
+.contenedor-principal {
+  background-color: #131926;
+  display: flex;
+}
+
+.degradado {
+  width: 430px;
+  height: 72px;
+  background: linear-gradient(
+    92deg,
+    #20a5fe 0,
+    #20a5fe 14%,
+    #5e3b8c 56%,
+    #131926 85%,
+    #131926 100%
+  );
+  display: flex;
+  align-items: center;
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+.banbif-bg-white {
+  background-color: #fff;
+}
+
+.banbif-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.banbif-bg-image-form {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 44%;
+  background-image: url('../images/image-form-x2.png');
+  background-size: 810px 656px;
+  background-position: right center;
+  background-repeat: no-repeat;
+  color: white;
+  max-height: 656px;
+  background-color: transparent;
+   background-position: left center;
+  margin-top: 72px;
+}
+
+.banbif_cont {
+  padding-top: 72px;
+  margin-bottom: 80px;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  color: white;
+  margin-top: 5rem;
+}
+
+.hero-copy .texted-two,
+.banbif-header .texted-two {
+  color: #ffffff;
+  line-height: 56px;
+  font-size: 3rem;
+  letter-spacing: 0.5px;
+}
+
+/* ======================================================
+   FORMULARIO
+====================================================== */
+.form-section {
+  padding-top: 5rem;
+}
+
+.form-section .texted-one {
+  color: #141925;
+  line-height: 36px;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
+.banbif-form-help {
+  color: #2D323E;
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.banbif-width-350 {
+  max-width: 350px;
+}
+
+.form-control {
+  border-color: #dee2e6;
+  border-radius: 8px;
+  color: #004470;
+  font-size: 14px;
+  height: 56px;
+  padding: 16px 16px;
+  line-height: 28px;
+  background-color: #EDEFF2;
+}
+
+.form-group label {
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  bottom: 40px;
+  left: 10px;
+  position: absolute;
+  background-color: #EDEFF2;
+  padding: 0 5px;
+  font-size: 14px;
+  transition: 0.3s;
+  pointer-events: none;
+  color: #5C6375;
+}
+
+.form-control:focus ~ label {
+  font-size: 0.75rem;
+  bottom: 55px;
+  color: #924FF5;
+}
+
+.form-control:valid ~ label {
+  font-size: 0.75rem;
+  bottom: 55px;
+}
+
+.form-control:focus {
+  color: #141925 !important;
+  background-color: #EDEFF2;
+  border-color: #924FF5;
+  outline: 0;
+  box-shadow: none;
+}
+
+.banbif_cont_form {
+  position: relative;
+  min-height: 80px;
+}
+
+.banbif_cont_form > input.form-control {
+  height: 56px;
+  padding: 18px 16px 5px;
+  line-height: 28px;
+}
+
+.banbif_cont_form > input.form-control + label {
+  position: absolute;
+  left: 14px;
+  top: 33%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: all 150ms ease;
+  opacity: 0.75;
+}
+
+.banbif_cont_form > input.form-control:focus + label,
+.banbif_cont_form > input.form-control:not(:placeholder-shown) + label {
+  top: 8px;
+  transform: none;
+  font-size: 10px;
+  opacity: 1;
+}
+
+/* ======================================================
+   ESTADOS DE ERROR
+====================================================== */
+.banbif-error {
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.15px;
+  line-height: 16px;
+  font-size: 12px;
+  margin-top: 6px;
+  margin-bottom: 0;
+  color: #E11D48;
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.banbif-none {
+  display: none !important;
+}
+
+.banbif-input-error {
+  border-color: #E11D48 !important;
+  border-radius: 5px !important;
+  box-shadow: none !important;
+}
+
+.banbif-input-error:focus {
+  border-color: #E11D48 !important;
+}
+
+.banbif-input-error:focus ~ label {
+  color: #E11D48 !important;
+  bottom: 55px;
+}
+
+.banbif-input-error ~ label {
+  color: #E11D48 !important;
+  bottom: 40px;
+}
+
+.banbif-input-error:valid ~ label {
+  color: #E11D48;
+  bottom: 55px;
+}
+
+.message-check-icon {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  height: 20px;
+  margin-bottom: 16px !important;
+}
+
+/* ======================================================
+   CHECKBOX / TÉRMINOS
+====================================================== */
+.checkbox {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+}
+
+.d-terminos .banbif-error {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 0;
+  margin-top: -25px;
+}
+
+.d-terminos .banbif-error img {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.d-terminos p {
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.15px;
+  font-size: 14px;
+  text-align: left;
+  line-height: 20px;
+  margin-bottom: 20px !important;
+}
+
+.control {
+  position: relative;
+  padding-left: 28px;
+  display: flex;
+  align-items: flex-start !important;
+  gap: 10px;
+}
+
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.control__indicator {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: 2px solid #9CA3AF;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.control__indicator:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.control--checkbox input:checked ~ .control__indicator {
+  background-image: url("../images/banbif-checkimage.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
+  border-color: #924FF5;
+}
+
+.control--checkbox input:checked ~ .control__indicator:after {
+  display: none;
+}
+
+.banbif-color-gray {
+  color: #111827;
+}
+
+.d-terminos .control.control--checkbox a {
+  color: #8b5cf6;
+  text-decoration: none;
+}
+
+.d-terminos .control.control--checkbox a:hover {
+  text-decoration: underline;
+}
+
+/* ======================================================
+   CUSTOM SELECT (HIPOTECARIO)
+====================================================== */
+.banbif-select-wrap select {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+}
+
+.banbif-select-ui {
+  position: relative;
+}
+
+.banbif-select-btn {
+  width: 100%;
+  height: 56px;
+  border-radius: 12px;
+  background: #EDEFF2;
+  border: 1.5px solid transparent;
+  padding: 0 44px 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 14px;
+  color: #6B7280;
+  transition: border 150ms ease, background 150ms ease, box-shadow 150ms ease;
+}
+
+.banbif-select-btn:hover {
+  background: #F6F3FF;
+}
+
+.banbif-select-ui.is-open .banbif-select-btn {
+  background: #FFFFFF;
+  border-color: #8B5CF6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+  color: #141925;
+}
+
+.banbif-select-arrow {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #6B7280;
+  border-bottom: 2px solid #6B7280;
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 150ms ease;
+}
+
+.banbif-select-ui.is-open .banbif-select-arrow {
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+.banbif-select-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 6px);
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 16px 32px rgba(17, 24, 39, .14);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+  z-index: 9999;
+}
+
+.banbif-select-ui.is-open .banbif-select-panel {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.banbif-opt {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #111827;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.banbif-opt:hover {
+  background: #F6F3FF;
+  color: #6A21B6;
+}
+
+.banbif-opt.is-active {
+  background: #F6F3FF;
+  color: #6A21B6;
+  font-weight: 600;
+}
+
+.banbif-select-overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  display: none;
+  z-index: 9998;
+}
+
+.banbif-select-ui.is-open + .banbif-select-overlay {
+  display: block;
+}
+
+.banbif-select-ui.has-error .banbif-select-btn {
+  border-color: #E11D48 !important;
+  box-shadow: none !important;
+}
+
+/* ======================================================
+   INFO CALLOUT
+====================================================== */
+.banbif-info-callout {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: #dff3ff;
+  border-radius: 8px;
+  padding: 16px 16px;
+}
+
+.banbif-info-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  margin-top: 2px;
+  background-image: url('../images/icon-little-alert.png');
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.banbif-info-text {
+  font-size: 12px;
+  line-height: 1.35;
+  color: #1f2937;
+}
+
+.banbif-info-text p {
+  margin: 0 0 6px;
+}
+
+/* ======================================================
+   BOTÓN PRINCIPAL
+====================================================== */
+.banbif-btn-primario {
+  display: block;
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #924ff5;
+  color: #fff;
+  font-family: 'Manrope-SemiBold', sans-serif;
+  font-size: 1.125rem;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.banbif-btn-primario:hover {
+  background-color: #7e28d9;
+}
+
+.banbif-btn-primario:active {
+  background-color: #6a21b6;
+}
+
+.banbif-btn-primario:focus {
+  background-color: #924ff5;
+}
+
+/* ======================================================
+   FOOTER
+====================================================== */
+.banbif-footer {
+  background-color: #131926;
+  padding: 32px 0;
+}
+
+.banbif-footer_text {
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 16px;
+  letter-spacing: 0.15px;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+/* ======================================================
+   RESPONSIVE PRINCIPAL
+====================================================== */
+@media (max-width: 767.98px) {
+  .hero-copy {
+    margin-top: 1.5rem;
+  }
+
+  .hero-copy .texted-two {
+    font-size: 1.75rem;
+    line-height: 32px;
+  }
+
+  .banbif-bg-image-form {
+    width: 100%;
+    background-image: url('../images/bk-header-mobile.png');
+    max-height: none;
+    height: 260px;
+  }
+
+  main {
+    min-height: auto;
+  }
+
+  .align-items-stretch {
+    margin-top: 120px;
+  }
+}
+
+/* ======================================================
+   AJUSTES TÉRMINOS / HEADER
+====================================================== */
+.d-terminos .banbif-error.message-check-icon {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.d-terminos label.control {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 575.98px) {
+  .banbif-hero-top {
+    height: auto;
+    padding: 24px 16px;
+    background: linear-gradient(135deg, #131926, #1f2340);
+  }
+
+  .banbif-hero-top .banbif-bg-image-form {
+    display: none;
+  }
+
+  .banbif-hero-top h1 {
+    font-size: 26px;
+    line-height: 1.3;
+  }
+}

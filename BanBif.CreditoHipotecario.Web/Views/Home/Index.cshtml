@@ -2,7 +2,157 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+ <div class="banbif-hero banbif-bg-white banbif-hero--only">
+      <div class="banbif-bg-image-form" aria-hidden="true"></div>
+
+      <div class="container banbif_cont banbif-banner">
+        <div class="row g-0 align-items-stretch">
+
+          <div id="header-text" class="col-md-7 d-flex">
+            <div class="hero-copy manrope">
+              <h1 class="mb-3 manrope-regular texted-two">Simula tu Crédito<br class="d-none d-md-block"> Hipotecario</h1>
+            </div>
+          </div>
+
+          <div class="col-md-4 offset-md-1">
+            <div class="form-section">
+              <h2 class="manrope manrope-regular texted-one">Simula tu Crédito<br>Hipotecario</h2>
+              <p class="banbif-form-help">Para comenzar, ingresa tus datos:</p>
+
+              <form id="form" action="" method="post" novalidate>
+
+                <div class="form-group banbif-width-350 banbif_cont_form">
+                  <input type="text" class="form-control" id="dni" maxlength="8" name="dni" autocomplete="off" required
+                    placeholder=" " onkeypress="return validaNumericos(event)" />
+                  <label for="dni">DNI</label>
+                  <p class="banbif-error message-check-icon banbif-none" id="errorDNI">
+                    <img src="images/icon-info-off.png" alt="Icono información" width="16" height="16"> Ingresa un número de documento de 8 dígitos.
+                  </p>
+                </div>
+
+                <div class="form-group banbif-width-350 banbif_cont_form">
+                  <input type="text" class="form-control" id="phone" maxlength="9" name="phone" autocomplete="off" required
+                    placeholder=" " onkeypress="return validaNumericos(event)" />
+                  <label for="phone">Número de celular</label>
+                  <p class="banbif-error message-check-icon banbif-none" id="errorPhoneFormato">
+                    <img src="images/icon-info-off.png" alt="" width="16" height="16">
+                    Ingresa un número de celular de 9 dígitos.
+                  </p>
+
+                  
+                </div>
+
+                <div class="form-group banbif-width-350 banbif_cont_form">
+                  <input type="text" class="form-control" id="email" name="email" autocomplete="off" required
+                    placeholder=" " autocomplete="new-password" />
+                  <label for="email">Correo electrónico</label>
+                  <p class="banbif-error message-check-icon banbif-none" id="errorEmailFormato">
+                    <img src="images/icon-info-off.png" alt="" width="16" height="16">
+                    Ingresa un correo con el siguiente formato: nombre@ejemplo.com
+                  </p>
+                </div>
+                <div class="form-group banbif-width-350 banbif_cont_form banbif-select-wrap">
+
+                 <div class="banbif-select-ui" data-for="estadoCivil">
+                    <button type="button" class="banbif-select-btn" aria-haspopup="listbox" aria-expanded="false">
+                      <span class="banbif-select-label">Estado civil</span>
+                      <span class="banbif-select-arrow"></span>
+                    </button>
+
+                    <div class="banbif-select-panel" role="listbox">
+                      <div class="banbif-opt" role="option" data-value="soltero">Soltero</div>
+                      <div class="banbif-opt" role="option" data-value="casado">Casado</div>
+                      <div class="banbif-opt" role="option" data-value="viudo">Viudo</div>
+                      <div class="banbif-opt" role="option" data-value="divorciado">Divorciado</div>
+                    </div>
+                  </div>
+
+                  <div class="banbif-select-overlay" aria-hidden="true"></div>
+                  <p class="banbif-error message-check-icon banbif-none" id="errorEstadoCivil">
+                    <img src="images/icon-info-off.png" alt="" width="16" height="16">
+                    Completa este campo.
+                  </p>
+                  <select id="estadoCivil" name="estadoCivil" required>
+                    <option value="" selected disabled>Estado civil</option>
+                    <option value="soltero">Soltero</option>
+                    <option value="casado">Casado</option>
+                    <option value="viudo">Viudo</option>
+                    <option value="divorciado">Divorciado</option>
+                  </select>
+              </div>
+                  
+             
+                <div class="banbif-width-350 text-center">
+                  <div class="checkbox d-terminos">
+
+                    <label for="condicion0" class="control control--checkbox d-flex align-items-center" style="margin-bottom: 8px">
+                      <input type="checkbox" id="condicion0" name="condicion0" />
+                     
+                      <div class="control__indicator"></div>
+                       <p class="banbif-color-gray">
+                        He leído y acepto los
+                        <a class="link-hover banbif-sub-hover" href="https://www.reinventabanbif.pe/Hipotecario/assets/TerminosCondicionesv2.pdf" target="_blank">términos y condiciones</a>
+                      </p>
+                    </label>
+                    <p class="banbif-error message-check-icon banbif-none" id="errorCond0">
+                      <img src="images/icon-info-off.png" alt="" width="16" height="16">
+                      Para continuar debes leer y aceptar los términos y condiciones.
+                    </p>
+                    <label for="condicion1" class="control control--checkbox d-flex align-items-center" style="margin-bottom: 8px">
+                      <input type="checkbox" id="condicion1" name="condicion1" />
+                      <p class="banbif-color-gray">
+                        He leído y acepto la
+                        <a class="link-hover banbif-sub-hover"
+                          href="https://www.banbif.com.pe/Portals/0/PDF/CONSENTIMIENTO-DE-DATOS-PERSONALES.pdf" target="_blank">
+                          Cláusula de información y consentimiento para tratamiento datos personales.
+                        </a>
+                      </p>
+                      <div class="control__indicator"></div>
+                    </label>
+                    <p class="banbif-error message-check-icon banbif-none" id="errorCond1">
+                      <img src="images/icon-info-off.png" alt="" width="16" height="16"> Para continuar debes leer y aceptar esta clausula.
+                    </p>
+
+                    <label for="condicion2" class="control control--checkbox d-flex align-items-center">
+                      <input type="checkbox" id="condicion2" name="condicion2" />
+                      <p class="banbif-color-gray">
+                        He leído y acepto el tratamiento de datos para finalidades secundarias o adicionales de la
+                        <a class="link-hover banbif-sub-hover"
+                          href="https://www.banbif.com.pe/Portals/0/PDF/CONSENTIMIENTO-DE-DATOS-PERSONALES.pdf" target="_blank">
+                          Cláusula de información y consentimiento para tratamiento datos personales.*
+                        </a><span class="banbif-required"></span>
+                      </p>
+                      <div class="control__indicator"></div>
+                    </label>
+                    <p class="banbif-error message-check-icon banbif-none">
+                      <img src="images/icon-info-off.png" alt="Icono información" width="16" height="16">  Para continuar debes leer y aceptar esta cláusula.
+                    </p>
+                  </div>
+                </div>
+                <div class="banbif-info-callout mt-3">
+                <div class="banbif-info-icon" aria-hidden="true"></div>
+                <div class="banbif-info-text">
+                  <p class="mb-2">(*) Marcar o desmarcar de acuerdo a la opción que deseas elegir.</p>
+                </div>
+              </div>
+
+                <div class="text-center mt-4 mb-4">
+                  <div class="g-recaptcha" data-sitekey="6LcBGE8qAAAAAKpCzgmtUayyi0_7nYXZ7kgGNpxx"></div>
+                  <p class="banbif-error banbif-none" id="errorCaptcha">Captcha no válido</p>
+                </div>
+
+                <input name="submitted" type="hidden" value="true" />
+                <div>
+                  <button id="btnNext" class="banbif-btn-primario w-100" type="submit">Continuar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+ </div>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+@section Scripts {
+    <script src="~/js/validaciones.js"></script>
+    <script src="~/js/pages/FormularioHipotecario.js"></script>
+}

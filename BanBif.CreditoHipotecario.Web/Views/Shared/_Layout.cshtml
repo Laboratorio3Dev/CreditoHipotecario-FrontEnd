@@ -1,44 +1,46 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BanBif.CreditoHipotecario.Web</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/BanBif.CreditoHipotecario.Web.styles.css" asp-append-version="true" />
+    <title>BanBif - Crédito Hipotecario</title>
+    <link rel="shortcut icon" href="~/images/favicon.ico" />
+    <link rel="stylesheet" href="~/css/str-base.css" />
+    <link rel="stylesheet" href="~/css/str.css" />
+
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BanBif.CreditoHipotecario.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+<body class="banbif-hipotecario">
+    <header class="header-section">
+        <div class="banbif-header">
+            <div class="bg-wrapper">
+                <div class="container contenedor-principal">
+                    <div class="degradado">
+                        <a href="https://www.banbif.com.pe/personas" target="_blank" class="banbif-logo">
+                            <img src="images/banbif.png" alt="BanBif" height="32" />
+                        </a>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </div>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
+    @*<div class="container">
+        
+    </div> *@
+   
+ 
+    <main>
+        @RenderBody()
+    </main>
+    <footer class="banbif-footer">
         <div class="container">
-            &copy; 2026 - BanBif.CreditoHipotecario.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row align-items-center">
+                <div class="col-12 col-md-auto">
+                    <img src="images/banbif-footer.png" alt="BanBif" height="32" />
+                </div>
+                <div class="col-12 col-md">
+                    <p class="banbif-footer_text">© 2026 BanBif - Todos los derechos reservados. Banco Interamericano de Finanzas S.A. - RUC 20101036813</p>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
