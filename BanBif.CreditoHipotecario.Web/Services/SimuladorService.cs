@@ -16,12 +16,57 @@ namespace BanBif.CreditoHipotecario.Web.Services
 
         public async Task<SimulacionResponse> SimularAsync(SimulacionRequest request)
         {
-            var apiUrl = $"{_configuration["UrlAPI"]}/api/Credito/Simular";
+            var apiUrl = $"{_configuration["UrlAPI"]}/api/Credito/simular";
 
-            var response = await _httpClient.PostAsJsonAsync(apiUrl, request);
-            response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadFromJsonAsync<SimulacionResponse>();
+
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync(apiUrl, request);
+
+                // ❌ Error HTTP (404, 500, etc.)
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new SimulacionResponse
+                    {
+                        Result = false,
+                        Message = "Error de comunicación con el servicio."
+                    };
+                }
+
+                var backendResponse =
+                    await response.Content.ReadFromJsonAsync<SimulacionResponse>();
+
+                // ❌ Backend respondió pero con error de negocio
+                if (backendResponse == null || !backendResponse.Result)
+                {
+                    return new SimulacionResponse
+                    {
+                        Result = false,
+                        Message = "Los datos ingresados no son válidos."
+                    };
+                }
+
+                // ✅ Todo OK
+                return backendResponse;
+            }
+            catch (TaskCanceledException ex)
+            {
+                return new SimulacionResponse
+                {
+                    Result = false,
+                    Message = "Tiempo de espera agotado."
+                };
+            }
+            catch (Exception ex)
+            {
+                return new SimulacionResponse
+                {
+                    Result = false,
+                    Message = "Error inesperado en el servicio."
+                };
+            }
+        
         }
 
         public async Task<ConfiguracionResponse> ObtenerConfiguracionAsync()

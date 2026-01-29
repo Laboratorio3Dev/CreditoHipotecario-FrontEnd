@@ -20,7 +20,7 @@ namespace BanBif.CreditoHipotecario.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Simular([FromBody] SimulacionRequest request)
+        public async Task<IActionResult> Simular( SimulacionRequest request)
         {
             var result = await _simuladorService.SimularAsync(request);
             return Ok(result);

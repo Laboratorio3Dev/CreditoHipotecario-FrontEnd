@@ -20,7 +20,7 @@ namespace BanBif.CreditoHipotecario.Web.Services
         }
         public async Task<LoginResponse> LoginAsync(LoginRequest request)
         {
-            var apiUrl = $"{_configuration["UrlAPI"]}/api/credito/credito/login";
+            var apiUrl = $"{_configuration["UrlAPI"]}/api/Credito/login";
 
             try
             {

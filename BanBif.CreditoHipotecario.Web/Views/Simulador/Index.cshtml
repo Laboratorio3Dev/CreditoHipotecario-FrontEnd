@@ -1,6 +1,4 @@
-﻿@{
-    Layout = null;
-}
+﻿
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -59,12 +57,12 @@
                                 <p class="banbif-coti-label">Moneda</p>
                                 <div class="banbif-coti-radio">
                                     <label class="control control--radio">
-                                        <input type="radio" name="moneda" value="soles" checked />
+                                        <input type="radio" name="moneda" value="1" checked />
                                         <span class="banbif-radio-text">Soles</span>
                                         <div class="control__indicator"></div>
                                     </label>
                                     <label class="control control--radio">
-                                        <input type="radio" name="moneda" value="dolares" />
+                                        <input type="radio" name="moneda" value="2" />
                                         <span class="banbif-radio-text">Dólares</span>
                                         <div class="control__indicator"></div>
                                     </label>
@@ -81,8 +79,8 @@
                                             <span class="banbif-select-arrow"></span>
                                         </button>
                                         <div class="banbif-select-panel" role="listbox">
-                                            <div class="banbif-opt" role="option" data-value="si">Sí</div>
-                                            <div class="banbif-opt" role="option" data-value="no">No</div>
+                                            <div class="banbif-opt" role="option" data-value="1">Sí</div>
+                                            <div class="banbif-opt" role="option" data-value="0">No</div>
                                         </div>
                                     </div>
 
@@ -90,8 +88,8 @@
 
                                     <select class="form-control" name="tipoVivienda" required>
                                         <option value="" selected disabled>¿Es tu 1ra vivienda? (1)</option>
-                                        <option value="si">Sí</option>
-                                        <option value="no">No</option>
+                                        <option value="1">Sí</option>
+                                        <option value="0">No</option>
                                     </select>
                                     <p class="banbif-error banbif-none" id="error_tipoVivienda">
                                         <img src="images/icon-info-off.png" alt="" width="16" height="16">
@@ -139,7 +137,8 @@
                                            id="financia"
                                            name="financia"
                                            placeholder=" "
-                                           inputmode="decimal" />
+                                           inputmode="decimal"
+                                           disabled/>
                                     <label for="financia">
                                         Tu monto a financiar será <span class="banbif-super">(2)</span>
                                     </label>
@@ -170,10 +169,10 @@
                                         </button>
 
                                         <div class="banbif-select-panel" role="listbox">
-                                            <div class="banbif-opt" role="option" data-value="dependiente">Dependiente</div>
-                                            <div class="banbif-opt" role="option" data-value="profeisonalIndependiente">Profesional Independiente</div>
-                                            <div class="banbif-opt" role="option" data-value="independienteNegocio">Independiente con Negocio</div>
-                                            <div class="banbif-opt" role="option" data-value="sinIngreso">Sin sustento de ingresos</div>
+                                            <div class="banbif-opt" role="option" data-value="1">Dependiente</div>
+                                            <div class="banbif-opt" role="option" data-value="2">Profesional Independiente</div>
+                                            <div class="banbif-opt" role="option" data-value="3">Independiente con Negocio</div>
+                                            <div class="banbif-opt" role="option" data-value="4">Sin sustento de ingresos</div>
                                         </div>
                                     </div>
 
@@ -181,10 +180,10 @@
 
                                     <select class="form-control" name="tipoIngreso" required>
                                         <option value="" selected disabled>Tipo de ingreso</option>
-                                        <option value="dependiente">Dependiente</option>
-                                        <option value="profeisonalIndependiente">Profesional Independiente</option>
-                                        <option value="independienteNegocio">Independiente con Negocio</option>
-                                        <option value="sinIngreso">Sin sustento de ingresos</option>
+                                        <option value="1">Dependiente</option>
+                                        <option value="2">Profesional Independiente</option>
+                                        <option value="3">Independiente con Negocio</option>
+                                        <option value="4">Sin sustento de ingresos</option>
                                     </select>
                                     <p class="banbif-error banbif-none" id="error_tipoIngreso">
                                         <img src="images/icon-info-off.png" alt="" width="16" height="16">
@@ -201,12 +200,12 @@
                                     </p>
                                     <div class="banbif-coti-radio">
                                         <label class="control control--radio">
-                                            <input type="radio" name="compartirCuota" value="si" />
+                                            <input type="radio" name="compartirCuota" value="1" />
                                             <span class="banbif-radio-text">Sí</span>
                                             <div class="control__indicator"></div>
                                         </label>
                                         <label class="control control--radio">
-                                            <input type="radio" name="compartirCuota" value="no" />
+                                            <input type="radio" name="compartirCuota" value="0" />
                                             <span class="banbif-radio-text">No</span>
                                             <div class="control__indicator"></div>
                                         </label>
@@ -223,12 +222,12 @@
                                     </p>
                                     <div class="banbif-coti-radio">
                                         <label class="control control--radio">
-                                            <input type="radio" name="inmuebleDef" value="si" />
+                                            <input type="radio" name="inmuebleDef" value="1" />
                                             <span class="banbif-radio-text">Sí</span>
                                             <div class="control__indicator"></div>
                                         </label>
                                         <label class="control control--radio">
-                                            <input type="radio" name="inmuebleDef" value="no" />
+                                            <input type="radio" name="inmuebleDef" value="0" />
                                             <span class="banbif-radio-text">No</span>
                                             <div class="control__indicator"></div>
                                         </label>
@@ -282,343 +281,11 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          function initCustomSelect(name) {
-            const ui = document.querySelector(`.banbif-select-ui[data-for="${name}"]`);
-            if (!ui) return;
-
-            const btn    = ui.querySelector('.banbif-select-btn');
-            const label  = ui.querySelector('.banbif-select-label');
-            const opts   = [...ui.querySelectorAll('.banbif-opt')];
-            const overlay = ui.nextElementSibling?.classList.contains('banbif-select-overlay')
-              ? ui.nextElementSibling
-              : null;
-
-            const real = ui.parentElement.querySelector(`select[name="${name}"]`);
-            if (!real) return;
-
-            const errorEl = document.getElementById(`error_${name}`);
-
-            const open = () => {
-              ui.classList.add('is-open');
-              btn.setAttribute('aria-expanded', 'true');
-            };
-
-            const close = () => {
-              ui.classList.remove('is-open');
-              btn.setAttribute('aria-expanded', 'false');
-            };
-
-            btn.addEventListener('click', () => {
-              ui.classList.contains('is-open') ? close() : open();
-            });
-
-            overlay?.addEventListener('click', close);
-
-            opts.forEach(opt => {
-              opt.addEventListener('click', () => {
-                const value = opt.dataset.value;
-                const text  = opt.textContent.trim();
-
-                real.value = value;
-                real.dispatchEvent(new Event('change', { bubbles: true }));
-
-                opts.forEach(o => o.classList.remove('is-active'));
-                opt.classList.add('is-active');
-
-                const superSpan = label.querySelector('.banbif-super');
-                label.textContent = text;
-                if (superSpan) superSpan.remove();
-
-                ui.classList.remove('has-error');
-                real.classList.remove('banbif-input-error');
-                if (errorEl) errorEl.classList.add('banbif-none');
-
-                close();
-              });
-            });
-
-            document.addEventListener('click', (e) => {
-              if (!ui.contains(e.target)) close();
-            });
-
-            document.addEventListener('keydown', (e) => {
-              if (e.key === 'Escape') close();
-            });
-
-            if (real.value) {
-              const match = opts.find(o => o.dataset.value === real.value);
-              if (match) {
-                match.classList.add('is-active');
-                const superSpan = label.querySelector('.banbif-super');
-                label.textContent = match.textContent.trim();
-                if (superSpan) label.appendChild(superSpan);
-              }
-            }
-
-            const form = real.closest('form');
-            form?.addEventListener('submit', () => {
-              if (real.required && !real.value) {
-                ui.classList.add('has-error');
-                real.classList.add('banbif-input-error');
-                if (errorEl) errorEl.classList.remove('banbif-none');
-                close();
-              }
-            });
-
-            real.addEventListener('change', () => {
-              if (real.value) {
-                ui.classList.remove('has-error');
-                real.classList.remove('banbif-input-error');
-                if (errorEl) errorEl.classList.add('banbif-none');
-              }
-            });
-          }
-
-          initCustomSelect('tipoVivienda');
-          initCustomSelect('tipoIngreso');
-        });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          function validarRadios(nameGrupo, idError) {
-            const radios = document.querySelectorAll(`input[name="${nameGrupo}"]`);
-            const error  = document.getElementById(idError);
-            if (!radios.length || !error) return true;
-
-            const haySeleccion = Array.from(radios).some(r => r.checked);
-
-            if (haySeleccion) {
-              error.classList.add('banbif-none');
-            } else {
-              error.classList.remove('banbif-none');
-            }
-
-            return haySeleccion;
-          }
-
-          [
-            ['compartirCuota', 'error_compartirCuota'],
-            ['inmuebleDef',   'error_inmuebleDef']
-          ].forEach(([grupo, idError]) => {
-            const radios = document.querySelectorAll(`input[name="${grupo}"]`);
-            radios.forEach(radio => {
-              radio.addEventListener('change', () => {
-                validarRadios(grupo, idError);
-              });
-            });
-          });
-          function validarNumero(nameCampo, idError) {
-            const input = document.querySelector(`input[name="${nameCampo}"]`);
-            const error = document.getElementById(idError);
-            if (!input || !error) return true;
-
-            const valor = input.value.trim();
-            const esValido = valor !== '' && /^(\d+([.,]\d+)?)$/.test(valor);
-
-            if (esValido) {
-              input.classList.remove('banbif-input-error');
-              error.classList.add('banbif-none');
-            } else {
-              input.classList.add('banbif-input-error');
-              error.classList.remove('banbif-none');
-            }
-
-            return esValido;
-          }
-
-          const camposNumericos = [
-            ['valorInmueble', 'errorValorInmueble'],
-            ['inicial',        'errorInicial'],
-            ['ingreso',        'errorIngreso'],
-            ['financia',      'errorFinancia'],
-          ];
-
-          camposNumericos.forEach(([campo, idError]) => {
-            const input = document.querySelector(`input[name="${campo}"]`);
-            if (!input) return;
-
-            input.addEventListener('blur', () => {
-              validarNumero(campo, idError);
-            });
-
-            input.addEventListener('input', () => {
-              if (input.classList.contains('banbif-input-error')) {
-                validarNumero(campo, idError);
-              }
-            });
-          });
-          function validarSelect(nameCampo, idError) {
-            const select = document.querySelector(`select[name="${nameCampo}"]`);
-            const error  = document.getElementById(idError);
-            if (!select) return true;
-
-            const ok = !!select.value;
-
-            if (ok) {
-              select.classList.remove('banbif-input-error');
-              error?.classList.add('banbif-none');
-            } else {
-              select.classList.add('banbif-input-error');
-              error?.classList.remove('banbif-none');
-            }
-
-            return ok;
-          }
-
-          const form = document.querySelector('form');
-          if (!form) return;
-
-          form.addEventListener('submit', (e) => {
-            let ok = true;
-
-            // NUMÉRICOS
-            ok = validarNumero('valorInmueble', 'errorValorInmueble') && ok;
-            ok = validarNumero('inicial',        'errorInicial')        && ok;
-            ok = validarNumero('ingreso',        'errorIngreso')        && ok;
-            ok = validarNumero('financia',      'errorFinancia')      && ok;
-            ok = validarRadios('compartirCuota', 'error_compartirCuota') && ok;
-            ok = validarRadios('inmuebleDef',    'error_inmuebleDef')    && ok;
-
-            ok = validarSelect('tipoVivienda', 'error_tipoVivienda') && ok;
-            ok = validarSelect('tipoIngreso',  'error_tipoIngreso')  && ok;
-
-            if (!ok) {
-              e.preventDefault();
-            }
-          });
-
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          function setupInfoTooltips() {
-            const groups = document.querySelectorAll('.banbif-has-info');
-            if (!groups.length) return;
-
-            const GAP = 10;
-            const PADDING = 12;
-
-            function clamp(v, min, max){ return Math.max(min, Math.min(max, v)); }
-
-            function placeTooltip(btn, tip) {
-              tip.classList.add('is-open');
-              tip.style.opacity = '0';
-              tip.style.visibility = 'hidden';
-
-              const b = btn.getBoundingClientRect();
-              const t = tip.getBoundingClientRect();
-              const vw = window.innerWidth;
-              const vh = window.innerHeight;
-
-              const spaceTop = b.top;
-              const spaceBottom = vh - b.bottom;
-              const spaceRight = vw - b.right;
-              const spaceLeft = b.left;
-
-              let side = 'top';
-              if (spaceTop < t.height + GAP + PADDING && spaceBottom >= t.height + GAP + PADDING) side = 'bottom';
-              else if (spaceTop < t.height + GAP + PADDING && spaceBottom < t.height + GAP + PADDING) {
-                if (spaceRight >= t.width + GAP + PADDING) side = 'right';
-                else if (spaceLeft >= t.width + GAP + PADDING) side = 'left';
-                else side = 'bottom';
-              }
-
-              let x = 0, y = 0, arrow = 24, origin = '50% 100%';
-
-              if (side === 'top') {
-                x = b.left + (b.width / 2) - (t.width / 2);
-                y = b.top - t.height - GAP;
-                origin = '50% 100%';
-                arrow = (t.width / 2) - 6;
-              }
-
-              if (side === 'bottom') {
-                x = b.left + (b.width / 2) - (t.width / 2);
-                y = b.bottom + GAP;
-                origin = '50% 0%';
-                arrow = (t.width / 2) - 6;
-              }
-
-              if (side === 'right') {
-                x = b.right + GAP;
-                y = b.top + (b.height / 2) - (t.height / 2);
-                origin = '0% 50%';
-                arrow = (t.height / 2) - 6;
-              }
-
-              if (side === 'left') {
-                x = b.left - t.width - GAP;
-                y = b.top + (b.height / 2) - (t.height / 2);
-                origin = '100% 50%';
-                arrow = (t.height / 2) - 6;
-              }
-
-              x = clamp(x, PADDING, vw - t.width - PADDING);
-              y = clamp(y, PADDING, vh - t.height - PADDING);
-
-              if (side === 'top' || side === 'bottom') {
-                const btnCenterX = b.left + b.width / 2;
-                const arrowX = clamp(btnCenterX - x - 6, 16, t.width - 28);
-                tip.style.setProperty('--tt-arrow', `${arrowX}px`);
-              } else {
-                const btnCenterY = b.top + b.height / 2;
-                const arrowY = clamp(btnCenterY - y - 6, 12, t.height - 24);
-                tip.style.setProperty('--tt-arrow', `${arrowY}px`);
-              }
-
-              tip.dataset.side = side;
-              tip.style.setProperty('--tt-origin', origin);
-              tip.style.setProperty('--tt-x', `${Math.round(x)}px`);
-              tip.style.setProperty('--tt-y', `${Math.round(y)}px`);
-
-              tip.style.opacity = '';
-              tip.style.visibility = '';
-            }
-
-            function open(btn, tip) {
-              placeTooltip(btn, tip);
-              tip.classList.add('is-open');
-              tip.setAttribute('aria-hidden', 'false');
-            }
-
-            function close(tip) {
-              tip.classList.remove('is-open');
-              tip.setAttribute('aria-hidden', 'true');
-            }
-
-            groups.forEach(group => {
-              const btn = group.querySelector('.banbif-info-btn');
-              const tip = group.querySelector('.banbif-info-tip');
-              if (!btn || !tip) return;
-
-              tip.setAttribute('role', 'tooltip');
-              tip.setAttribute('aria-hidden', 'true');
-
-              let isOpen = false;
-
-              const show = () => { isOpen = true; open(btn, tip); };
-              const hide = () => { isOpen = false; close(tip); };
-
-              btn.addEventListener('mouseenter', show);
-              btn.addEventListener('mouseleave', hide);
-              btn.addEventListener('focus', show);
-              btn.addEventListener('blur', hide);
-
-              const onReflow = () => { if (isOpen) placeTooltip(btn, tip); };
-              window.addEventListener('scroll', onReflow, true);
-              window.addEventListener('resize', onReflow);
-
-              document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && isOpen) hide();
-              });
-            });
-          }
-
-          setupInfoTooltips();
-        });
-    </script>
 </body>
 </html>
+
+<!-- 👇 SCRIPTS AL FINAL, SIEMPRE -->
+<script src="~/js/pages/validators.js"></script>
+<script src="~/js/pages/custom-select.js"></script>
+<script src="~/js/pages/tooltips.js"></script>
+<script src="~/js/pages/simulador.js"></script>

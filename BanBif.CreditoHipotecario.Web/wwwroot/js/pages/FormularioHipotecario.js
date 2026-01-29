@@ -136,7 +136,7 @@
             const result = await response.json();
 
             if (result.result) {
-                // ✅ MISMO COMPORTAMIENTO QUE ANTES
+                debugger;
                 sessionStorage.CODIGOCLIENTE = result.data.codigocliente;
                 sessionStorage.CLIENTE = result.data.cliente;
                 sessionStorage.FLUJO = result.data.flujo;

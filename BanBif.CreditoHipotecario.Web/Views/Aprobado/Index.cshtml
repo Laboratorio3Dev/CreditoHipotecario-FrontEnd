@@ -1,0 +1,144 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BanBif - Felicidades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="~/images/favicon.ico" />
+    <link rel="stylesheet" href="~/css/str-base.css" />
+    <link rel="stylesheet" href="~/css/hipotecario-felicidades.css" />
+    
+</head>
+
+<body class="banbif-hipotecario-felicidades">
+
+    <header class="header-section">
+        <div class="banbif-header">
+            <div class="bg-wrapper">
+                <div class="container contenedor-principal">
+                    <div class="degradado">
+                        <a href="https://www.banbif.com.pe/personas" class="banbif-logo">
+                            <img src="~/images/banbif.png" alt="BanBif" height="32" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="bb-main">
+        <section class="bb-wrap">
+            <div class="bb-card">
+                <div class="bb-hero-icon">
+                    <img src="images/image-form-x4.png"
+                         alt=""
+                         class="bb-hero-icon__img" />
+                </div>
+
+                <h1 class="bb-title">Felicidades</h1>
+                <p class="bb-subtitle">Tenemos las siguientes opciones para ti:</p>
+
+                <div class="bb-amount-card">
+                    <div class="bb-amount" id="montoSolicitado"></div>
+
+                    <div class="bb-amount-grid">
+                        <div class="bb-col">
+                            <div class="bb-col-title">Años</div>
+
+                            <div class="bb-row">
+                                <div class="bb-row-label">En 20 años</div>
+                                <div class="bb-row-line"></div>
+                            </div>
+
+                            <div class="bb-row">
+                                <div class="bb-row-label">En 15 años</div>
+                                <div class="bb-row-line"></div>
+                            </div>
+                        </div>
+
+                        <div class="bb-col">
+                            <div class="bb-col-title">(*) Cuota referencial:</div>
+
+                            <div class="bb-row">
+                                <div class="bb-row-label">S/ 1,857.95</div>
+                                <div class="bb-row-line"></div>
+                            </div>
+
+                            <div class="bb-row">
+                                <div class="bb-row-label">S/ 2,039.94</div>
+                                <div class="bb-row-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="bb-question">¿Deseas que te contactemos?</p>
+
+                <div class="bb-actions">
+                    <a class="bb-btn bb-btn--outline" href="hipotecario_cotizacion.html">Cotizar Nuevamente</a>
+                    <a class="bb-btn bb-btn--solid"
+                       href="https://wa.me/XXXXXXXXXXX"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        ¡Sí, ir a Whatsapp!
+                    </a>
+                </div>
+
+                <div class="bb-callout">
+                    <div class="bb-callout__icon"></div>
+                    <div class="bb-callout__text">
+                        (*) Los valores y montos mostrados son referenciales. El monto de la cuota incluye: capital,
+                        intereses, seguro todo riesgo y seguro de desgravamen básico solo para un titular. La vigencia
+                        de esta oferta es de 30 días calendarios posteriores a esta cotización. Para mejorar las
+                        condiciones aquí ofrecidas, dale click a ¡Sí, ir a Whatsapp! para contactarte con nuestro
+                        ejecutivo BanBif.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="wsp" class="bb-modal" aria-hidden="true">
+            <a class="bb-modal__backdrop" href="#" aria-label="Cerrar"></a>
+
+            <div class="bb-modal__box" role="dialog" aria-modal="true" aria-label="Instrucciones WhatsApp">
+                <div class="bb-modal__check">
+                    <img src="~/images/bb-check.png"
+                         alt=""
+                         class="bb-modal__check-img" />
+                </div>
+                <div class="bb-modal__content_Title">
+                    <p class="bb-modal__title">Para ir a Whatsapp desde tu navegador Safari deberás:</p>
+
+                    <ul class="bb-modal__list">
+                        <li>Ir a la Configuración de tu dispositivo.</li>
+                        <li>Seleccionar la opción Safari.</li>
+                        <li>Desactivar la opción “Bloquear ventanas”.</li>
+                    </ul>
+                </div>
+                <a class="bb-modal__btn" href="#">Entendido</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="banbif-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-auto">
+                    <img src="~/images/banbif-footer.png" alt="BanBif" height="32" />
+                </div>
+                <div class="col-12 col-md">
+                    <p class="banbif-footer_text">© 2026 BanBif - Todos los derechos reservados. Banco Interamericano de Finanzas S.A. - RUC 20101036813</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+<script src="~/js/pages/validators.js?@(new Random().Next(1000))"></script>
+<script src="~/js/pages/hipotecario-felicidades.js?@(new Random().Next(1000))"></script>

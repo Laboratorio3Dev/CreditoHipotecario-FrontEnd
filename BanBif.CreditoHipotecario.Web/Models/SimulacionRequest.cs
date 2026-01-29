@@ -2,15 +2,17 @@
 {
     public class SimulacionRequest
     {
-        public int codigocliente { get; set; }
-        public int moneda { get; set; }
-        public int valorinmueble { get; set; }
-        public int dineronecesita { get; set; }
-        public int ingresomensual { get; set; }
-        public int tipoingreso { get; set; }
-        public bool compartircuota { get; set; }
-        public bool inmueblecomprar { get; set; }
-        public bool flagterminos { get; set; }
-        public bool flagdatos { get; set; }
+        public int CodigoCliente { get; set; }
+        public int Moneda { get; set; }
+        public int ValorInmueble { get; set; }
+        public int DineroNecesita { get; set; }
+        public int IngresoMensual { get; set; }
+        public int TipoIngreso { get; set; }
+        public bool CompartirCuota { get; set; }
+        public bool InmuebleComprar { get; set; }
+        public bool FlagTerminos { get; set; }
+        public bool FlagDatos { get; set; }
+        public int PrimeraVivienda { get; set; }
+        public int? MontoInicial { get; set; }
     }
 }
