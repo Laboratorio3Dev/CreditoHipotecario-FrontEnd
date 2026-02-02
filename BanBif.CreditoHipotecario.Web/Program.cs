@@ -7,6 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<ILoginService, LoginService>();
 builder.Services.AddHttpClient<ISimuladorService, SimuladorService>();
+builder.Services.AddHttpClient<IAprobadoService, AprobadoService>();
+builder.Services.AddHttpClient<IOfertaService, OfertaService>();
+
 
 var app = builder.Build();
 

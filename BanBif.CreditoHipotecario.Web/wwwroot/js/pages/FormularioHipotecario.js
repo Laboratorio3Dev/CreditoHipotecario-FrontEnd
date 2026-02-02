@@ -1,4 +1,16 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
+   
+    debugger;
+    sessionStorage.clear();
+    sessionStorage.setItem("GUID", createUUID());
+    const queryString = window.location;
+    var valBusqueda = queryString.href.search("utm_medium=QR");
+
+    if (valBusqueda > 0) {
+        sessionStorage.setItem("UTM", "FERIA");
+    } else {
+        sessionStorage.setItem("UTM", window.APP_CONFIG.utm);
+    }
 
     function validardni() {
         const input = document.getElementById("dni");
@@ -90,6 +102,8 @@
         const email = document.getElementById("email");
         const c0 = document.getElementById("condicion0");
         const c1 = document.getElementById("condicion1");
+        const estadoCivil = document.getElementById("estadoCivil");
+        
         debugger;
         // 🔥 FORZAR TODAS LAS VALIDACIONES VISUALES
         const ok =
@@ -107,12 +121,14 @@
             return;
         }
 
-        // 🔐 PAYLOAD (igual que tu on-premise)
+       
         const payload = {
             documento: dni.value,
             celular: phone.value,
             correo: email.value,
-            tipoIngreso: window.APP_CONFIG.tipoIngreso
+            tipoIngreso: window.APP_CONFIG.tipoIngreso,
+            estadoCivil: estadoCivil.value,
+            codigoLog : sessionStorage.GUID
         };
 
         const btn = document.getElementById("btnNext");
@@ -278,3 +294,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+function createUUID() {
+    // http://www.ietf.org/rfc/rfc4122.txt
+    var s = [];
+    var hexDigits = "0123456789abcdef";
+    for (var i = 0; i < 36; i++) {
+        s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+    }
+    s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
+    s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
+    s[8] = s[13] = s[18] = s[23] = "-";
+
+    var uuid = s.join("");
+    return uuid;
+}
